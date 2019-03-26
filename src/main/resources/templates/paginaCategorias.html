@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmls:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<title>Categorias</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></link>
+</head>
+<body>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Categorias</strong>
+			</div>
+		<div class="panel-body">
+			<div class="table-reponsive">
+				<table class="table table-sm table-striped table-houver table-bordered">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th></th>
+						</tr>	
+					</thead>
+					<tbody>
+						<tr th:each="cat : ${categorias}">
+							<td th:text="${cat.id}"></td>
+							<td th:text="${cat.nome}"></td> 
+							<td>
+								<div class="btn-group pull-right">
+									<a class="btn btn-sm btn-primary">Editar</a>
+									<a class="delete btn-sm btn-danger">Excluir</a>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<a class="btn btn-sm btn-sucess" >Adicionar</a>
+		</div>	
+	</div>
+
+</body>
+</html>
