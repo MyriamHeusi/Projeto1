@@ -1,4 +1,4 @@
-package br.com.senac.servico.exception;
+package br.com.senac.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.senac.dominio.Categoria;
 import br.com.senac.repositorio.CategoriaRepositorio;
+import br.com.senac.servico.exception.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
