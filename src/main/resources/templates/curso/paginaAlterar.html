@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmls:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width"/>
+	<title>Cursos</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></link>
+</head>
+
+<body>
+<div class="container">
+		<div class="panel-heading" align="center">
+			<strong>Alterar Cursos</strong>
+		</div>
+		
+		<div class="panel-body">
+			<form class="form-horizontal" th:object="${curso}" th:action="@{/curso/alterarCurso}" method="POST" style="margin: 10px">
+			<fieldset>
+
+		<div class="form-group row">
+			<input type="hidden" class="form-control input-sm" id="id" th:field="*{id}"/>
+		</div>
+		
+		<div class="form-group row">
+			<label>Nome</label>
+			<input type="text" class="form-control input-sm" id="nome" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome" maxlength="50"/>
+		</div>
+		
+		<div class="form-group row">
+			<label>Descrição</label>
+			<input type="text" class="form-control input-sm" id="descricao" th:field="*{descricao}" autofocus="autofocus" placeholder="Informe a descrição" maxlength="200"/>
+		</div>
+		
+		<div class="form-group row">
+			<label>Preço</label>
+			<input type="number" step="any" class="form-control input-sm" id="preco" th:field="*{preco}" autofocus="autofocus" placeholder="Informe a descrição" maxlength="10"/>
+		</div>
+		
+		<label>Categoria</label>
+		
+		<ul style="list-style: none;">
+		<li th:each="cat : ${categorias}"><input type="checkbox" th:field="*{categorias}" th:value="${cat.id}" th:checked="${true}"/>
+			<label th:text="${cat.nome}"></label></li>
+			
+		
+		</ul>
+		</fieldset>
+		</div>
+		
+		<div align="center">
+		<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+		<a th:href="@{/curso/listarCursos}" class="btn btn-sm btn-default">cancelar</button>></a>
+		
+		</div>
+		</form>
+		</div>
+		</div>
+		
+
+</body>
+</html>
